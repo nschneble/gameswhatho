@@ -1,0 +1,29 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3.2
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+
+require:
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 140
+
+Metrics/MethodLength:
+  Enabled: true
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
