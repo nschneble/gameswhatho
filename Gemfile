@@ -58,6 +58,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Catch unsafe migrations in development
+  gem "strong_migrations"
 end
 
 group :test do
