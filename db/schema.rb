@@ -10,8 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_234839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name", default: "My Collection", null: false
+    t.bigint "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_collections_on_player_id"
+  end
+
+  create_table "collections_games", id: false, force: :cascade do |t|
+    t.bigint "collection_id"
+    t.bigint "game_id"
+    t.index ["collection_id"], name: "index_collections_games_on_collection_id"
+    t.index ["game_id"], name: "index_collections_games_on_game_id"
+  end
+
+  create_table "designers", force: :cascade do |t|
+    t.string "name", default: "Designer", null: false
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+    t.unique_constraint ["name"]
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "name", default: "Game", null: false
+    t.numrange "play_count"
+    t.numrange "play_time"
+    t.string "teaser"
+    t.string "elevator_pitch"
+    t.bigint "designer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["designer_id"], name: "index_games_on_designer_id"
+    t.unique_constraint ["name"]
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name", default: "Player One", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+    t.unique_constraint ["name"]
+  end
 
 end
