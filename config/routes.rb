@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  resources :collections
-  resources :designers
+  resources :collections do
+    resources :games
+  end
+
+  resources :designers do
+    resources :games
+  end
+
   resources :games
-  resources :players
+
+  resources :players do
+    resources :collections
+    resources :games
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
