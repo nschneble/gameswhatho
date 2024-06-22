@@ -1,5 +1,5 @@
 class DesignersController < ApplicationController
-  before_action :set_designer, only: %i[ show edit update destroy ]
+  before_action :set_designer, only: %i[show edit update destroy]
 
   # GET /designers or /designers.json
   def index
@@ -7,8 +7,7 @@ class DesignersController < ApplicationController
   end
 
   # GET /designers/1 or /designers/1.json
-  def show
-  end
+  def show; end
 
   # GET /designers/new
   def new
@@ -16,8 +15,7 @@ class DesignersController < ApplicationController
   end
 
   # GET /designers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /designers or /designers.json
   def create
@@ -58,13 +56,14 @@ class DesignersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_designer
-      @designer = Designer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def designer_params
-      params.require(:designer).permit(:name, :website)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_designer
+    @designer = Designer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def designer_params
+    params.require(:designer).permit(:name, :website)
+  end
 end
