@@ -1,0 +1,41 @@
+# This migration creates all of our tables and relationships
+class CreatePlayers < ActiveRecord::Migration[7.1]
+  # rubocop:disable Metrics
+  def change
+    create_table :players do |t|
+      t.string :name, null: false, default: "Player One"
+      t.unique_constraint [:name]
+      t.timestamps
+    end
+
+    create_table :collections do |t|
+      t.string :name, null: false, default: "My Collection"
+      t.belongs_to :player
+      t.timestamps
+    end
+
+    create_table :games do |t|
+      t.string :name, null: false, default: "Game"
+      t.unique_constraint [:name]
+      t.numrange :play_count
+      t.numrange :play_time
+      t.string :teaser
+      t.string :elevator_pitch
+      t.belongs_to :designer
+      t.timestamps
+    end
+
+    create_table :designers do |t|
+      t.string :name, null: false, default: "Designer"
+      t.unique_constraint [:name]
+      t.string :website
+      t.timestamps
+    end
+
+    create_table :collections_games, id: false do |t|
+      t.belongs_to :collection
+      t.belongs_to :game
+    end
+  end
+  # rubocop:enable Metrics
+end
