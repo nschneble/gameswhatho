@@ -1,3 +1,4 @@
+# This controller is responsible for managing game collections
 class CollectionsController < ApplicationController
   before_action :set_collection, only: %i[show edit update destroy]
 
@@ -23,7 +24,7 @@ class CollectionsController < ApplicationController
 
     respond_to do |format|
       if @collection.save
-        format.html { redirect_to collection_url(@collection), notice: "Collection was successfully created." }
+        format.html { redirect_to collection_url(@collection), notice: notice(@collection, :create) }
         format.json { render :show, status: :created, location: @collection }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +37,7 @@ class CollectionsController < ApplicationController
   def update
     respond_to do |format|
       if @collection.update(collection_params)
-        format.html { redirect_to collection_url(@collection), notice: "Collection was successfully updated." }
+        format.html { redirect_to collection_url(@collection), notice: notice(@collection, :update) }
         format.json { render :show, status: :ok, location: @collection }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +51,7 @@ class CollectionsController < ApplicationController
     @collection.destroy!
 
     respond_to do |format|
-      format.html { redirect_to collections_url, notice: "Collection was successfully destroyed." }
+      format.html { redirect_to collections_url, notice: notice(@collection, :delete) }
       format.json { head :no_content }
     end
   end

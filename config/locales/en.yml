@@ -28,4 +28,7 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  controllers:
+    create: " was successfully created."
+    update: " was successfully updated."
+    delete: " was successfully destroyed."

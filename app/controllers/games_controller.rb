@@ -1,3 +1,4 @@
+# This controller is responsible for managing board games
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
 
@@ -23,7 +24,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to game_url(@game), notice: "Game was successfully created." }
+        format.html { redirect_to game_url(@game), notice: notice(@game, :create) }
         format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +37,7 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       if @game.update(game_params)
-        format.html { redirect_to game_url(@game), notice: "Game was successfully updated." }
+        format.html { redirect_to game_url(@game), notice: notice(@game, :update) }
         format.json { render :show, status: :ok, location: @game }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +51,7 @@ class GamesController < ApplicationController
     @game.destroy!
 
     respond_to do |format|
-      format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
+      format.html { redirect_to games_url, notice: notice(@game, :delete) }
       format.json { head :no_content }
     end
   end
