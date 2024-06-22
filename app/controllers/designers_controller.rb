@@ -24,7 +24,7 @@ class DesignersController < ApplicationController
 
     respond_to do |format|
       if @designer.save
-        format.html { redirect_to designer_url(@designer), notice: notice(@designer, :create) }
+        format.html { redirect_to designer_url(@designer), notice: notice_t(@designer, :create) }
         format.json { render :show, status: :created, location: @designer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class DesignersController < ApplicationController
   def update
     respond_to do |format|
       if @designer.update(designer_params)
-        format.html { redirect_to designer_url(@designer), notice: notice(@designer, :update) }
+        format.html { redirect_to designer_url(@designer), notice: notice_t(@designer, :update) }
         format.json { render :show, status: :ok, location: @designer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class DesignersController < ApplicationController
     @designer.destroy!
 
     respond_to do |format|
-      format.html { redirect_to designers_url, notice: notice(@designer, :delete) }
+      format.html { redirect_to designers_url, notice: notice_t(@designer, :delete) }
       format.json { head :no_content }
     end
   end

@@ -24,7 +24,7 @@ class CollectionsController < ApplicationController
 
     respond_to do |format|
       if @collection.save
-        format.html { redirect_to collection_url(@collection), notice: notice(@collection, :create) }
+        format.html { redirect_to collection_url(@collection), notice: notice_t(@collection, :create) }
         format.json { render :show, status: :created, location: @collection }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class CollectionsController < ApplicationController
   def update
     respond_to do |format|
       if @collection.update(collection_params)
-        format.html { redirect_to collection_url(@collection), notice: notice(@collection, :update) }
+        format.html { redirect_to collection_url(@collection), notice: notice_t(@collection, :update) }
         format.json { render :show, status: :ok, location: @collection }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class CollectionsController < ApplicationController
     @collection.destroy!
 
     respond_to do |format|
-      format.html { redirect_to collections_url, notice: notice(@collection, :delete) }
+      format.html { redirect_to collections_url, notice: notice_t(@collection, :delete) }
       format.json { head :no_content }
     end
   end
