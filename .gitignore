@@ -68,5 +68,8 @@ yarn-debug.log*
 !/storage/.keep
 /public/uploads
 
+# macOS
+.DS_Store
+
 # Nova config
 .nova
