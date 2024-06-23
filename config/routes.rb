@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :games
+  resources :libraries
 
   resources :players do
     resources :collections
