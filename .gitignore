@@ -73,3 +73,6 @@ yarn-debug.log*
 
 # Nova config
 .nova
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

@@ -72,3 +72,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Rapidly build modern websites without ever leaving your HTML
+gem "tailwindcss-rails", "~> 2.6"
