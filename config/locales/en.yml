@@ -28,6 +28,8 @@
 #       enabled: "ON"
 
 en:
+  app:
+    title: "Games Library"
   controllers:
     create: " was successfully created."
     update: " was successfully updated."
