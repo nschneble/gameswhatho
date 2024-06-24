@@ -36,3 +36,18 @@ en:
     delete: " was successfully destroyed."
   games:
     min: "min"
+  home:
+    paginate:
+      page: "Page"
+      of: "of"
+      previous: "Previous"
+      next: "Next"
+    search: "Search"
+    table:
+      title: "Title"
+      play_time: "Playing Time"
+      play_count: "# Players"
+    tabs:
+      all: "All Games"
+      two_players: "Two Players"
+      under_30: "Under 30 Minutes"
