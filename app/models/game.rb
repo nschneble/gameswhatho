@@ -9,6 +9,6 @@ class Game < ApplicationRecord
   end
 
   def game_length_in_minutes
-    "#{play_time.begin.to_i} - #{play_time.end.to_i} #{I18n.t("games.min")}"
+    "#{play_time.begin.to_i} - #{play_time.end.to_i} #{I18n.t('games.min')}"
   end
 end
