@@ -32,3 +32,5 @@ en:
     create: " was successfully created."
     update: " was successfully updated."
     delete: " was successfully destroyed."
+  games:
+    min: "min"
