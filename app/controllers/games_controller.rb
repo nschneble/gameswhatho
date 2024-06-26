@@ -8,7 +8,12 @@ class GamesController < ApplicationController
   end
 
   # GET /games/1 or /games/1.json
-  def show; end
+  def show
+    respond_to do |format|
+      format.html { render :show, status: :ok, location: @game }
+      format.json { render_serialized_json @game, with: GameResource }
+    end
+  end
 
   # GET /games/new
   def new
