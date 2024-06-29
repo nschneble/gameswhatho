@@ -4,7 +4,7 @@ class GameResource
 
   root_key :game
 
-  attributes :id, :name, :play_count, :play_time, :teaser, :elevator_pitch
+  attributes :id, :name
 
   attribute :number_of_players, &:number_of_players
   attribute :game_length_in_minutes, &:game_length_in_minutes
