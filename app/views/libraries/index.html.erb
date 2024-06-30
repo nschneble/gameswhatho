@@ -86,9 +86,7 @@
       </div>
 
       <div class="mt-6 sm:flex sm:items-center sm:justify-between">
-        <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
         <%== pagy_info(@pagy) %>
-        <%# Render a view helper in your views (skipping nav links for empty pages) %>
         <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
       </div>
     </section>
