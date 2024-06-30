@@ -53,3 +53,5 @@ en:
       all: "All Games"
       two_players: "Two Players"
       under_30: "Under 30 Minutes"
+  modal:
+    close: "Close"
