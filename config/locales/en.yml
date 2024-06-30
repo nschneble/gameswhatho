@@ -30,6 +30,8 @@
 en:
   app:
     title: "Games Library"
+  collection:
+    default_name: "My Collection"
   controllers:
     create: " was successfully created."
     update: " was successfully updated."
