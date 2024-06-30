@@ -40,6 +40,9 @@
                 <thead class="bg-gray-50">
                   <tr>
                     <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
+                    </th>
+
+                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
                       <button class="flex items-center gap-x-3 focus:outline-none">
                         <span><%= t("home.table.title") %> ⇅</span>
                       </button>
@@ -53,6 +56,10 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                   <% @games.each do |game| %>
                     <tr class="hover:bg-gray-50 cursor-pointer">
+                      <td class="pl-4 py-4 text-sm whitespace-nowrap">
+                        🦖
+                      </td>
+
                       <td class="px-4 py-4 text-sm whitespace-nowrap">
                         <div>
                           <h2 class="font-medium text-gray-800"><%= game.name %></h2>
