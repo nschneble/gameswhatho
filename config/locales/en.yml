@@ -39,11 +39,6 @@ en:
   games:
     min: "min"
   home:
-    paginate:
-      page: "Page"
-      of: "of"
-      previous: "Previous"
-      next: "Next"
     search: "Search"
     table:
       title: "Title"
