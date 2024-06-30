@@ -14,11 +14,9 @@ class GamesTest < ApplicationSystemTestCase
     visit games_url
     click_on "New game"
 
-    fill_in "Elevator pitch", with: @game.elevator_pitch
     fill_in "Name", with: @game.name
     fill_in "Play count", with: @game.play_count
     fill_in "Play time", with: @game.play_time
-    fill_in "Teaser", with: @game.teaser
     click_on "Create Game"
 
     assert_text "Game was successfully created"
@@ -29,11 +27,9 @@ class GamesTest < ApplicationSystemTestCase
     visit game_url(@game)
     click_on "Edit this game", match: :first
 
-    fill_in "Elevator pitch", with: @game.elevator_pitch
     fill_in "Name", with: @game.name
     fill_in "Play count", with: @game.play_count
     fill_in "Play time", with: @game.play_time
-    fill_in "Teaser", with: @game.teaser
     click_on "Update Game"
 
     assert_text "Game was successfully updated"

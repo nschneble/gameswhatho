@@ -20,11 +20,9 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
       post games_url,
            params: {
              game: {
-               elevator_pitch: @game.elevator_pitch,
                name: @game.name,
                play_count: @game.play_count,
-               play_time: @game.play_time,
-               teaser: @game.teaser
+               play_time: @game.play_time
              }
            }
     end
@@ -46,11 +44,9 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     patch game_url(@game),
           params: {
             game: {
-              elevator_pitch: @game.elevator_pitch,
               name: @game.name,
               play_count: @game.play_count,
-              play_time: @game.play_time,
-              teaser: @game.teaser
+              play_time: @game.play_time
             }
           }
     assert_redirected_to game_url(@game)

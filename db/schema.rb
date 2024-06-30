@@ -42,8 +42,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_23_174437) do
     t.string "name", default: "Game", null: false
     t.numrange "play_count"
     t.numrange "play_time"
-    t.string "teaser"
-    t.string "elevator_pitch"
     t.bigint "designer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

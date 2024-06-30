@@ -2,14 +2,10 @@
 
 one:
   name: MyString
-  play_count: 
-  play_time: 
-  teaser: MyString
-  elevator_pitch: MyString
+  play_count:
+  play_time:
 
 two:
   name: MyString
-  play_count: 
-  play_time: 
-  teaser: MyString
-  elevator_pitch: MyString
+  play_count:
+  play_time:

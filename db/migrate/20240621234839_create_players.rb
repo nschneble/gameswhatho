@@ -19,8 +19,6 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
       t.unique_constraint [:name]
       t.numrange :play_count
       t.numrange :play_time
-      t.string :teaser
-      t.string :elevator_pitch
       t.belongs_to :designer
       t.timestamps
     end
