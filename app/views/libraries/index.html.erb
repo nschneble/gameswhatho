@@ -87,6 +87,12 @@
 
       <div class="mt-6 sm:flex sm:items-center sm:justify-between">
         <div class="text-sm text-gray-500">
+          <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+          <%== pagy_info(@pagy) %>
+          <%== pagy_nav(@pagy) %>
+        </div>
+
+        <div class="text-sm text-gray-500">
           <%= t("home.paginate.page") %> <span class="font-medium text-gray-700">1 <%= t("home.paginate.of") %> 1</span>
         </div>
 

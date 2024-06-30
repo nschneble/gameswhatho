@@ -78,3 +78,6 @@ gem "tailwindcss-rails", "~> 2.6"
 
 # JSON serializer
 gem "alba"
+
+# Pagination
+gem "pagy", "~> 8.6"
