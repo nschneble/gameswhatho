@@ -81,3 +81,7 @@ gem "alba"
 
 # Pagination
 gem "pagy", "~> 8.6"
+
+# Search
+gem "searchkick"
+gem "opensearch-ruby"
