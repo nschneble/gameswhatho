@@ -8,6 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Dir[Rails.root.join("db/seeds/*.rb")].each do |seed|
+# seed designers and games
+Dir[Rails.root.join("db/seeds/designers/*.rb")].each do |seed|
+  load seed
+end
+
+# seed players and collections
+Dir[Rails.root.join("db/seeds/players/*.rb")].each do |seed|
   load seed
 end
