@@ -4,12 +4,15 @@ class Game < ApplicationRecord
   has_and_belongs_to_many :collections
   has_many :players, through: :collections
 
+  extend Pagy::Searchkick
   include RangeUtils
+
+  searchkick
 
   GAME_LENGTH_IN_MIN = {
     short: 30,
     medium: 60
-  }
+  }.freeze
 
   def number_of_players
     format_range(play_count)
@@ -29,5 +32,14 @@ class Game < ApplicationRecord
 
   def long?
     play_time.end.to_i > GAME_LENGTH_IN_MIN[:medium]
+  end
+
+  # Searchkick guidance
+  # https://gist.github.com/JasonTrue/3cd6a7094e23cd72bfb870604521f415#indexing
+  def search_data
+    {
+      name:,
+      designer: designer.name
+    }
   end
 end

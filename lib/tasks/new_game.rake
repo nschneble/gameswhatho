@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Reset the database, then run all migrations and seeds"
+  desc "Reset the database, run all migrations and seeds, and reindex all models"
   task new_game: :environment do
     puts "Resetting the database..."
     Rake::Task["db:drop"].invoke
@@ -11,6 +11,9 @@ namespace :db do
     puts "Running seeds..."
     Rake::Task["db:seed"].invoke
 
-    puts "Database reset, migrations run, seeds loaded."
+    puts "Reindexing models..."
+    Rake::Task["searchkick:reindex:all"].invoke
+
+    puts "Database reset, migrations run, seeds loaded, models reindexed"
   end
 end

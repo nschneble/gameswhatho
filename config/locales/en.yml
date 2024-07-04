@@ -30,6 +30,7 @@
 en:
   app:
     title: "Games Library"
+    search_title: "Games Library | Search: "
   collection:
     default_name: "My Collection"
   controllers:
