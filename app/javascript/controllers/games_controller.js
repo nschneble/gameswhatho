@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     document.addEventListener("click", function(event) {
-      if (!event.target.closest("#gameModal")) {
+      if (event.target.matches(".button-close-modal") || !event.target.closest(".modal")) {
         const modal = document.querySelector("dialog");
         modal.close();
       }
