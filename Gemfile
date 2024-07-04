@@ -88,3 +88,6 @@ gem "searchkick"
 
 # Admin dashboard
 gem "administrate"
+
+# Authentication
+gem "devise"
