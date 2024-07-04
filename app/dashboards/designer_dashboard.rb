@@ -13,7 +13,7 @@ class DesignerDashboard < Administrate::BaseDashboard
     name: Field::String,
     website: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

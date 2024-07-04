@@ -16,7 +16,7 @@ class GameDashboard < Administrate::BaseDashboard
     play_time: Field::String.with_options(searchable: false),
     players: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
