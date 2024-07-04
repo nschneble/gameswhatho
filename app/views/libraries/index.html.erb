@@ -18,7 +18,7 @@
       </div>
 
       <div class="mt-6 md:flex md:items-center md:justify-between">
-        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg rtl:flex-row-reverse">
+        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg">
           <button class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm"><%= t("home.tabs.all") %></button>
           <button class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm hover:bg-gray-100"><%= t("home.tabs.two_players") %></button>
           <button class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm hover:bg-gray-100"><%= t("home.tabs.under_30") %></button>
@@ -28,9 +28,9 @@
           <span class="absolute">
             <span class="w-5 h-5 mx-3 text-gray-400 opacity-50">🔍</span>
           </span>
-          <form>
-            <input type="text" name="search" value="<%= params[:search] %>" placeholder="<%= t("home.search") %>" class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
-          </form>
+          <%= form_with url: root_path, method: :get, data: { turbo_frame: "games", turbo_action: "advance" } do |form| %>
+            <input type="text" name="search" value="<%= params[:search] %>" placeholder="<%= t("home.search") %>" class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+          <% end %>
         </div>
       </div>
 
@@ -38,55 +38,7 @@
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div class="overflow-hidden border border-gray-200 md:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                  <tr>
-                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
-                    </th>
-
-                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"><%= t("home.table.title") %></th>
-                    <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"><%= t("home.table.play_time") %></th>
-                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"><%= t("home.table.play_count") %></th>
-                  </tr>
-                </thead>
-
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <% @games.each do |game| %>
-                    <tr class="hover:bg-gray-50 cursor-pointer" data-controller="games" data-action="click->games#show" data-games-id="<%= game.id %>">
-                      <td class="pl-4 py-4 text-sm whitespace-nowrap">
-                        🦖
-                      </td>
-
-                      <td class="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h2 class="font-medium text-gray-800"><%= game.name %></h2>
-                          <p class="font-normal text-gray-600"><%= game.designer.name %></p>
-                        </div>
-                      </td>
-                      <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        <% if game.short? %>
-                          <div class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60">
-                            <%= game.game_length_in_minutes %>
-                          </div>
-                        <% elsif game.medium? %>
-                          <div class="inline px-3 py-1 text-sm font-normal rounded-full text-yellow-500 gap-x-2 bg-yellow-100/60">
-                            <%= game.game_length_in_minutes %>
-                          </div>
-                        <% else %>
-                          <div class="inline px-3 py-1 text-sm font-normal rounded-full text-red-500 gap-x-2 bg-red-100/60">
-                            <%= game.game_length_in_minutes %>
-                          </div>
-                        <% end %>
-                      </td>
-                      <td class="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 class="text-gray-700"><%= game.number_of_players %></h4>
-                        </div>
-                      </td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
+              <%= render "games/games", games: @games %>
             </div>
           </div>
         </div>

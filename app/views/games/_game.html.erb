@@ -1,17 +1,17 @@
-<div id="<%= dom_id game %>">
-  <p>
-    <strong>Name:</strong>
-    <%= game.name %>
-  </p>
-
-  <p>
-    <strong>Play count:</strong>
-    <%= game.play_count %>
-  </p>
-
-  <p>
-    <strong>Play time:</strong>
-    <%= game.play_time %>
-  </p>
-
+<div class="table-row hover:bg-gray-50 cursor-pointer" data-controller="games" data-action="click->games#show" data-games-id="<%= game.id %>" id="<%= dom_id game %>">
+  <div class="table-cell pl-4 py-3.5 w-1/8 text-sm font-normal text-center align-middle">
+    <span>🦖</span>
+  </div>
+  <div class="table-cell px-4 py-3.5 w-1/2 text-sm font-normal text-left whitespace-nowrap">
+    <h2 class="font-medium text-gray-800"><%= game.name %></h2>
+    <p class="font-normal text-gray-600"><%= game.designer.name %></p>
+  </div>
+  <div class="table-cell px-4 py-3.5 w-1/4 text-sm font-normal text-left">
+    <div class="inline px-3 py-1 rounded-full gap-x-2 <%= play_time_badge_colors(game) %>">
+      <%= game.game_length_in_minutes %>
+    </div>
+  </div>
+  <div class="table-cell px-4 py-3.5 w-1/8 text-sm font-normal text-left">
+    <h4 class="text-gray-700"><%= game.number_of_players %></h4>
+  </div>
 </div>
