@@ -85,3 +85,6 @@ gem "pagy", "~> 8.6"
 # Search
 gem "opensearch-ruby"
 gem "searchkick"
+
+# Admin dashboard
+gem "administrate"

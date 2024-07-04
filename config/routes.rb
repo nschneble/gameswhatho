@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :collections
+    resources :designers
+    resources :games
+    resources :libraries
+    resources :players
+
+    root to: "games#index"
+  end
+
   resources :collections do
     resources :games
   end
