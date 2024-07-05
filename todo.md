@@ -10,7 +10,6 @@
     https://tailwindcomponents.com/component/login-page-20
 
 ### Search
-1. Update page title on search
 2. Update pagy_info/pagy_nav on search
 
 ### Page Tabs
