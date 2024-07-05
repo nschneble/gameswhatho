@@ -13,6 +13,8 @@ module RangeUtils
     begin_to_s(range) + separator + end_to_s(range)
   end
 
+  private
+
   def beginless?(range)
     range.begin == -Float::INFINITY
   end
