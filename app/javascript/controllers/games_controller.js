@@ -7,8 +7,7 @@ export default class extends Controller {
     fetch(`/games/${id}.json`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`Couldn't retrieve board game details. ` +
-            `The server returned a ${response.status} HTTP status.`)
+          throw new Error(`Couldn't retrieve board game details`)
         }
         return response.json()
       })
