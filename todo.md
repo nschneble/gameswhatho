@@ -1,8 +1,9 @@
 # Project TODOs
 
-### `Games` model
+### `Game` model
 1. Add column: emoji (game icon)
 2. Add column: BGG url
+3. Link `Game` models for expansions (?)
 
 ### Devise
 1. Style login page (for admin)
