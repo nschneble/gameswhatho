@@ -18,7 +18,7 @@
               <% if games.any? %>
                 <%= render games %>
               <% else %>
-                <%= render "empty" %>
+                <%= render "games/game", game: Game.empty %>
               <% end %>
             </div>
           </div>

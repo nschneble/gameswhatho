@@ -1,4 +1,8 @@
+<% if game.empty? %>
+<div class="table-row">
+<% else %>
 <div class="table-row hover:bg-gray-50 cursor-pointer" data-controller="games" data-action="click->games#show" data-games-id="<%= game.id %>" id="<%= dom_id game %>">
+<% end %>
   <div class="table-cell pl-4 py-3.5 w-1/8 text-sm font-normal text-center align-middle">
     <span>🦖</span>
   </div>
