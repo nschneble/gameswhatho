@@ -10,7 +10,11 @@
     </div>
 
     <div class="table-row-group bg-white divide-y divide-gray-200">
-      <%= render @games %>
+      <% if @games.any? %>
+        <%= render @games %>
+      <% else %>
+        <%= render "empty" %>
+      <% end %>
     </div>
   </div>
 <% end %>

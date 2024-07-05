@@ -39,6 +39,9 @@ en:
     delete: " was successfully destroyed."
   games:
     min: "min"
+  empty:
+    message: "No games found"
+    suggestion: "Search for something else?"
   home:
     search: "Search"
     table:
