@@ -30,6 +30,7 @@
 en:
   app:
     title: "Games Library"
+    filter_title: "Games Library | "
     search_title: "Games Library | Search: "
   collection:
     default_name: "My Collection"
@@ -49,7 +50,7 @@ en:
       play_time: "Playing Time"
       play_count: "# Players"
     tabs:
-      all: "All Games"
+      all_games: "All Games"
       two_players: "Two Players"
       under_30: "Under 30 Minutes"
   modal:

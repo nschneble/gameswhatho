@@ -9,6 +9,10 @@ class Game < ApplicationRecord
 
   searchkick
 
+  scope :versus, -> { where("play_count @> 2") }
+  scope :speedy, -> { where("upper(play_time) <= 31").or(where("lower(play_time) <= 31 AND upper_inf(play_time)")) }
+  scope :sorted, -> { order(:name) }
+
   GAME_LENGTH_IN_MIN = {
     short: 31,
     medium: 61
@@ -54,5 +58,9 @@ class Game < ApplicationRecord
 
   def empty?
     name.eql?(I18n.t("empty.message")) && designer.name.eql?(I18n.t("empty.suggestion"))
+  end
+
+  def self.valid_scope?(scope)
+    send(:generated_relation_methods).instance_methods.include? scope.to_sym
   end
 end
