@@ -10,5 +10,7 @@
     https://tailwindcomponents.com/component/login-page-20
 
 ### Page Tabs
-1. Wire up "Two Players" tab
-2. Wire up "Under 30 Minutes" tab
+1. Clear search on tab change
+
+### Search
+1. Select "All Games" tab on search
