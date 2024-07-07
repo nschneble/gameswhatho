@@ -11,6 +11,7 @@
 
 ### Page Tabs
 1. Clear search on tab change
+2. Have "All Games" tab simply reload homepage (?)
 
 ### Search
 1. Select "All Games" tab on search
