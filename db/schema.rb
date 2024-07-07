@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
 
   create_table "games", force: :cascade do |t|
     t.string "name", default: "Game", null: false
-    t.numrange "play_count"
-    t.numrange "play_time"
+    t.int4range "play_count"
+    t.int4range "play_time"
     t.bigint "designer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

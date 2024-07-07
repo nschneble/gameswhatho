@@ -6,32 +6,31 @@ module RangeUtils
     scope :disabled, -> { where(disabled: true) }
   end
 
-  def format_range(range, separator: " - ")
-    return end_to_s(range) if beginless?(range)
-    return begin_to_s(range) if endless?(range)
+  def format_range(range)
+    if not_so_much_a_range_as_an_integer?(range)
+      range.to_fs(:zero)
+    elsif endless?(range)
+      "#{range.to_fs(:zero)}+"
+    else
+      range.to_fs(:dash)
+    end
+  end
 
-    begin_to_s(range) + separator + end_to_s(range)
+  def highest(range)
+    if endless?(range) # can't do shit with infinity
+      range.begin
+    else
+      range.end
+    end
   end
 
   private
 
-  def beginless?(range)
-    range.begin == -Float::INFINITY
+  def not_so_much_a_range_as_an_integer?(range)
+    range.begin == range.end - 1 # range ends are exclusive
   end
 
   def endless?(range)
     range.end == Float::INFINITY
-  end
-
-  def begin_to_s(range)
-    return "∞" if beginless?(range)
-
-    range.begin.to_i.to_s
-  end
-
-  def end_to_s(range)
-    return "∞" if endless?(range)
-
-    range.end.to_i.to_s
   end
 end

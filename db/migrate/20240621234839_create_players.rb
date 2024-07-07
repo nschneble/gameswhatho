@@ -17,8 +17,8 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
     create_table :games do |t|
       t.string :name, null: false, default: "Game"
       t.unique_constraint [:name]
-      t.numrange :play_count
-      t.numrange :play_time
+      t.int4range :play_count
+      t.int4range :play_time
       t.belongs_to :designer
       t.timestamps
     end

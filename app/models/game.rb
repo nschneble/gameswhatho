@@ -10,38 +10,28 @@ class Game < ApplicationRecord
   searchkick
 
   GAME_LENGTH_IN_MIN = {
-    short: 30,
-    medium: 60
+    short: 31,
+    medium: 61
   }.freeze
 
   def number_of_players
-    return if play_count.nil?
-
-    format_range(play_count)
+    format_range(play_count) if play_count.present?
   end
 
   def game_length_in_minutes
-    return if play_time.nil?
-
-    "#{format_range(play_time)} #{I18n.t('games.min')}"
+    "#{format_range(play_time)} #{I18n.t('games.min')}" if play_time.present?
   end
 
   def short?
-    return false if play_time.nil?
-
-    play_time.end.to_i <= GAME_LENGTH_IN_MIN[:short]
+    play_time.present? && highest(play_time) <= GAME_LENGTH_IN_MIN[:short]
   end
 
   def medium?
-    return false if play_time.nil?
-
-    play_time.end.to_i <= GAME_LENGTH_IN_MIN[:medium]
+    play_time.present? && highest(play_time) <= GAME_LENGTH_IN_MIN[:medium]
   end
 
   def long?
-    return false if play_time.nil?
-
-    play_time.end.to_i > GAME_LENGTH_IN_MIN[:medium]
+    play_time.present? && highest(play_time) > GAME_LENGTH_IN_MIN[:medium]
   end
 
   # Searchkick guidance
