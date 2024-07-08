@@ -20,9 +20,9 @@
       <div class="mt-6 md:flex md:items-center md:justify-between">
         <%= form_with url: root_path, method: :get, data: { controller: "filter", turbo_frame: "games", turbo_action: "advance", filter_page_title: t("app.title"), filter_filter_title: t("app.filter_title") } do |form| %>
           <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg">
-            <button class="button-filter-sorted px-5 py-2 text-xs font-medium text-white transition-colors duration-200 sm:text-sm bg-blue-600 cursor-default active" data-action="click->filter#change" data-filter="sorted"><%= t("home.tabs.all_games") %></button>
-            <button class="button-filter-versus px-5 py-2 text-xs font-medium text-gray-700 active:text-gray-800 transition-colors duration-200 sm:text-sm hover:bg-gray-100 active:bg-gray-200" data-action="click->filter#change" data-filter="versus"><%= t("home.tabs.two_players") %></button>
-            <button class="button-filter-speedy px-5 py-2 text-xs font-medium text-gray-700 active:text-gray-800 transition-colors duration-200 sm:text-sm hover:bg-gray-100 active:bg-gray-200" data-action="click->filter#change" data-filter="speedy"><%= t("home.tabs.under_30") %></button>
+            <button class="button-filter-sorted px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm <%= filter_nav_classes("sorted", @filter, @search) %>" data-action="click->filter#change" data-filter="sorted"><%= t("home.tabs.sorted") %></button>
+            <button class="button-filter-versus px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm <%= filter_nav_classes("versus", @filter, @search) %>" data-action="click->filter#change" data-filter="versus"><%= t("home.tabs.versus") %></button>
+            <button class="button-filter-speedy px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm <%= filter_nav_classes("speedy", @filter, @search) %>" data-action="click->filter#change" data-filter="speedy"><%= t("home.tabs.speedy") %></button>
           </div>
           <%= form.hidden_field :filter, value: "sorted" %>
         <% end %>

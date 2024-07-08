@@ -12,10 +12,11 @@ export default class extends Controller {
       document.title = searchTitle + searchQuery
     }
 
+    this.dispatch("reset")
+
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       this.element.requestSubmit()
-      this.dispatch("reset")
     }, 200)
   }
 }

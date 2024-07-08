@@ -50,8 +50,8 @@ en:
       play_time: "Playing Time"
       play_count: "# Players"
     tabs:
-      all_games: "All Games"
-      two_players: "Two Players"
-      under_30: "Under 30 Minutes"
+      sorted: "All Games"
+      versus: "Two Players"
+      speedy: "Under 30 Minutes"
   modal:
     close: "Close"

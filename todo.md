@@ -11,4 +11,3 @@
 
 ### Page Tabs
 1. Have "All Games" tab simply reload homepage (?)
-2. Restore correct tab styles on page reload
