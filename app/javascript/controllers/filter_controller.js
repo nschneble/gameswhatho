@@ -13,8 +13,11 @@ export default class extends Controller {
       const filters = ["sorted", "versus", "speedy"]
       filters.forEach((name) => toggleStyles(`.button-filter-${name}`, filter === name))
 
-      const input = document.querySelector(`input[name="filter"]`)
-      input.setAttribute("value", filter)
+      const searchInput = document.querySelector(`input[name="search"]`)
+      searchInput.value = ""
+
+      const filterInput = document.querySelector(`input[name="filter"]`)
+      filterInput.setAttribute("value", filter)
       this.element.requestSubmit()
     }
   }
