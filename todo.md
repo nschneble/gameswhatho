@@ -10,8 +10,5 @@
     https://tailwindcomponents.com/component/login-page-20
 
 ### Page Tabs
-1. Clear search on tab change
-2. Have "All Games" tab simply reload homepage (?)
-
-### Search
-1. Select "All Games" tab on search
+1. Have "All Games" tab simply reload homepage (?)
+2. Restore correct tab styles on page reload
