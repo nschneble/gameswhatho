@@ -21,9 +21,14 @@ export default class extends Controller {
       this.element.requestSubmit()
     }
   }
+
+  deselect() {
+    const filters = ["sorted", "versus", "speedy"]
+    filters.forEach((name) => toggleStyles(`.button-filter-${name}`))
+  }
 }
 
-function toggleStyles(selector, alwaysToggle) {
+function toggleStyles(selector, alwaysToggle = false) {
   const button = document.querySelector(selector)
   if (button.classList.contains("active") || alwaysToggle) {
     button.classList.toggle("text-white")
