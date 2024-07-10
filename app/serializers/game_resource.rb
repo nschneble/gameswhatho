@@ -11,19 +11,11 @@ class GameResource
   attribute :game_length_in_minutes, &:game_length_in_minutes
 
   attribute :base_game do |resource|
-    if resource.expansion?
-      resource.base_game.name
-    else
-      nil
-    end
+    resource.base_game.name if resource.expansion?
   end
 
   attribute :expansions do |resource|
-    if resource.expansions?
-      resource.expansions.order(:name).map(&:name).join(", ")
-    else
-      nil
-    end
+    resource.expansions.order(:name).map(&:name).join(", ") if resource.expansions?
   end
 
   attribute :designer_name do |resource|
