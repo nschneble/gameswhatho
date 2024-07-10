@@ -8,6 +8,7 @@ starling_games = Designer.create_with(
 # Everdell
 Game.create_with(
   emoji: "🐿",
+  bgg_url: "https://boardgamegeek.com/boardgame/199792/everdell",
   play_count: 1..4,
   play_time: 40..80,
   designer: starling_games
@@ -18,6 +19,7 @@ Game.create_with(
 # Spirecrest expansion
 Game.create_with(
   emoji: "❄️",
+  bgg_url: "https://boardgamegeek.com/boardgame/289056/everdell-spirecrest",
   play_count: 1..4,
   play_time: 40..100,
   base_game: Game.s("Everdell"),

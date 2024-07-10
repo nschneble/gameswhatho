@@ -1,8 +1,5 @@
 # Project TODOs
 
-### `Game` model
-2. Add column: BGG url
-
 ### Devise
 1. Style login page (for admin)
     https://tailwindcomponents.com/component/login-page-20

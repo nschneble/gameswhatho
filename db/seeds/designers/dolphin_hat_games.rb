@@ -8,6 +8,7 @@ Designer.create_with(
 # Taco Cat Goat Cheese Pizza
 Game.create_with(
   emoji: "🌮",
+  bgg_url: "https://boardgamegeek.com/boardgame/253664/taco-cat-goat-cheese-pizza",
   play_count: 3..8,
   play_time: 10..,
   designer: Designer.s("Dolphin Hat Games")
