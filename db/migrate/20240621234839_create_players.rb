@@ -14,6 +14,13 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
+    create_table :designers do |t|
+      t.string :name, null: false, default: "Designer"
+      t.unique_constraint [:name]
+      t.string :website
+      t.timestamps
+    end
+
     create_table :games do |t|
       t.string :name, null: false, default: "Game"
       t.unique_constraint [:name]
@@ -21,13 +28,6 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
       t.int4range :play_time
       t.references :base_game, foreign_key: { to_table: :games }
       t.belongs_to :designer
-      t.timestamps
-    end
-
-    create_table :designers do |t|
-      t.string :name, null: false, default: "Designer"
-      t.unique_constraint [:name]
-      t.string :website
       t.timestamps
     end
 

@@ -20,6 +20,10 @@ class Game < ApplicationRecord
     medium: 61
   }.freeze
 
+  def self.valid_scope?(scope)
+    send(:generated_relation_methods).instance_methods.include? scope.to_sym
+  end
+
   def expansion?
     base_game.present?
   end
@@ -79,9 +83,5 @@ class Game < ApplicationRecord
 
   def empty?
     name.eql?(I18n.t("empty.message")) && designer.name.eql?(I18n.t("empty.suggestion"))
-  end
-
-  def self.valid_scope?(scope)
-    send(:generated_relation_methods).instance_methods.include? scope.to_sym
   end
 end
