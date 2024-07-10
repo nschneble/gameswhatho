@@ -41,25 +41,5 @@
     </section>
   </div>
 
-  <dialog>
-    <div class="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 py-10">
-      <div class="modal max-h-full w-full max-w-xl overflow-y-auto sm:rounded-xl bg-white">
-        <div class="px-6 pt-6 pb-4 bg-gray-100 border-b border-gray-200">
-          <h1 class="text-2xl text-gray-800 font-medium" data-name></h1>
-          <h2 class="text-gray-600 hover:text-gray-700 active:text-gray-800 font-normal"><a class="focus:outline-none" href="#" target="_blank" data-designer></a>↗</h2>
-        </div>
-
-        <div class="p-6 text-sm font-medium text-gray-800">
-          <p><%= t("home.table.play_time") %>: <span class="font-normal text-gray-600" data-length></span></p>
-          <p><%= t("home.table.play_count") %>: <span class="font-normal text-gray-600" data-players></span></p>
-        </div>
-
-        <div class="m-12 mt-6">
-          <button type="submit" class="button-close-modal w-full h-12 px-5 text-white active:text-gray-100 capitalize transition-colors duration-200 rounded-md bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:shadow-outline">
-            <span><%= t("modal.close") %></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </dialog>
+  <%= render "modal" %>
 </div>

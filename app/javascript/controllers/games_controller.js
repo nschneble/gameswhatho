@@ -15,9 +15,24 @@ export default class extends Controller {
         const modal = document.querySelector("dialog")
         const game = data.game
 
-        modal.querySelector("[data-name]").textContent = game.display_name
+        modal.querySelector("[data-name]").textContent = game.emoji + " " + game.display_name
         modal.querySelector("[data-players]").textContent = game.number_of_players
         modal.querySelector("[data-length]").textContent = game.game_length_in_minutes
+
+        if (game.base_game !== null) {
+          modal.querySelector("[data-base-game-wrapper]").classList.remove("hidden")
+          modal.querySelector("[data-base-game]").textContent = game.base_game
+        } else {
+          modal.querySelector("[data-base-game-wrapper]").classList.add("hidden")
+        }
+
+        if (game.expansions !== null) {
+          modal.querySelector("[data-expansions-wrapper]").classList.remove("hidden")
+          modal.querySelector("[data-expansions]").textContent = game.expansions
+        } else {
+          modal.querySelector("[data-expansions-wrapper]").classList.add("hidden")
+        }
+
         modal.querySelector("[data-designer]").textContent = game.designer_name
         modal.querySelector("[data-designer]").setAttribute("href", game.designer_website)
         modal.showModal()

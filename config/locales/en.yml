@@ -54,4 +54,6 @@ en:
       versus: "Two Players"
       speedy: "Under 30 Minutes"
   modal:
+    base_game: "Base Game"
+    expansions: "Expansions"
     close: "Close"
