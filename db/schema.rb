@@ -42,9 +42,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
     t.string "name", default: "Game", null: false
     t.int4range "play_count"
     t.int4range "play_time"
+    t.bigint "base_game_id"
     t.bigint "designer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["base_game_id"], name: "index_games_on_base_game_id"
     t.index ["designer_id"], name: "index_games_on_designer_id"
     t.unique_constraint ["name"]
   end
@@ -74,4 +76,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "games", column: "base_game_id"
 end

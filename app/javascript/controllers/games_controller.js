@@ -15,7 +15,7 @@ export default class extends Controller {
         const modal = document.querySelector("dialog")
         const game = data.game
 
-        modal.querySelector("[data-name]").textContent = game.name
+        modal.querySelector("[data-name]").textContent = game.display_name
         modal.querySelector("[data-players]").textContent = game.number_of_players
         modal.querySelector("[data-length]").textContent = game.game_length_in_minutes
         modal.querySelector("[data-designer]").textContent = game.designer_name

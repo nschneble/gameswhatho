@@ -1,8 +1,10 @@
 # This model represents a board game
 class Game < ApplicationRecord
+  belongs_to :base_game, class_name: "Game", optional: true
   belongs_to :designer
   has_and_belongs_to_many :collections
   has_many :players, through: :collections
+  has_many :expansions, class_name: "Game", foreign_key: "base_game_id", inverse_of: "base_game", dependent: :destroy
 
   extend Pagy::Searchkick
   include RangeUtils
@@ -11,12 +13,30 @@ class Game < ApplicationRecord
 
   scope :versus, -> { where("play_count @> 2") }
   scope :speedy, -> { where("upper(play_time) <= 31").or(where("lower(play_time) <= 31 AND upper_inf(play_time)")) }
-  scope :sorted, -> { order(:name) }
+  scope :sorted, -> { joins("LEFT JOIN games AS base_games ON games.base_game_id = base_games.id").order(Arel.sql("COALESCE(base_games.name, games.name)")) }
 
   GAME_LENGTH_IN_MIN = {
     short: 31,
     medium: 61
   }.freeze
+
+  def expansion?
+    base_game.present?
+  end
+
+  def expansions?
+    expansions.any?
+  end
+
+  def exp(name)
+    expansions.find_by(name:)
+  end
+
+  def display_name
+    return "#{base_game.name}: #{name}" if expansion?
+
+    name
+  end
 
   def number_of_players
     format_range(play_count) if play_count.present?
@@ -43,6 +63,7 @@ class Game < ApplicationRecord
   def search_data
     {
       name:,
+      base_game:,
       designer: designer.name
     }
   end

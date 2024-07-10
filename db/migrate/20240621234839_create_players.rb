@@ -19,6 +19,7 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
       t.unique_constraint [:name]
       t.int4range :play_count
       t.int4range :play_time
+      t.references :base_game, foreign_key: { to_table: :games }
       t.belongs_to :designer
       t.timestamps
     end

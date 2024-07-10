@@ -14,11 +14,12 @@ Game.create_with(
   name: "Everdell"
 )
 
-# Everdell Spirecrest
+# Spirecrest expansion
 Game.create_with(
   play_count: 1..4,
   play_time: 40..100,
+  base_game: Game.s("Everdell"),
   designer: starling_games
 ).find_or_create_by!(
-  name: "Everdell Spirecrest"
+  name: "Spirecrest"
 )
