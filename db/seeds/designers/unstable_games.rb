@@ -7,6 +7,7 @@ Designer.create_with(
 
 # Happy Little Dinosaurs
 Game.create_with(
+  emoji: "🦖",
   play_count: 2..4,
   play_time: 30..60,
   designer: Designer.s("Unstable Games")

@@ -7,6 +7,7 @@ Designer.create_with(
 
 # Taco Cat Goat Cheese Pizza
 Game.create_with(
+  emoji: "🌮",
   play_count: 3..8,
   play_time: 10..,
   designer: Designer.s("Dolphin Hat Games")

@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
 
   create_table "games", force: :cascade do |t|
     t.string "name", default: "Game", null: false
+    t.string "emoji", default: "🎲", null: false
     t.int4range "play_count"
     t.int4range "play_time"
     t.bigint "base_game_id"

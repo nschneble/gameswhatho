@@ -24,6 +24,7 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
     create_table :games do |t|
       t.string :name, null: false, default: "Game"
       t.unique_constraint [:name]
+      t.string :emoji, null: false, default: "🎲"
       t.int4range :play_count
       t.int4range :play_time
       t.references :base_game, foreign_key: { to_table: :games }

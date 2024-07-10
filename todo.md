@@ -1,7 +1,6 @@
 # Project TODOs
 
 ### `Game` model
-1. Add column: emoji (game icon)
 2. Add column: BGG url
 
 ### Devise

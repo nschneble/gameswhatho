@@ -4,7 +4,7 @@
 <div class="table-row hover:bg-gray-50 cursor-pointer" data-controller="games" data-action="click->games#show" data-games-id="<%= game.id %>" id="<%= dom_id game %>">
 <% end %>
   <div class="table-cell pl-4 py-3.5 w-1/8 text-sm font-normal text-center align-middle">
-    <span>🦖</span>
+    <span><%= game.emoji %></span>
   </div>
   <div class="table-cell px-4 py-3.5 w-1/2 text-sm font-normal text-left whitespace-nowrap">
     <h2 class="font-medium text-gray-800"><%= game.display_name %></h2>
