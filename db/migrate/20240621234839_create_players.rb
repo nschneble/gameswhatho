@@ -35,6 +35,8 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
       t.belongs_to :collection
       t.belongs_to :game
     end
+
+    create_table :libraries, &:timestamps
   end
   # rubocop:enable Metrics
 end
