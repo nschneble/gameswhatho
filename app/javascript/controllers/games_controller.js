@@ -31,7 +31,8 @@ export default class extends Controller {
 }
 
 function closeModal(event) {
-  if (event.target.matches(".button-close-modal") || !event.target.closest(".modal")) {
+  const target = event.target
+  if (target.matches(".button-close-modal") || target.matches(".button-close-modal > span") || !target.closest(".modal")) {
     const modal = document.querySelector("dialog")
     modal.close()
     document.removeEventListener("click", closeModal)
