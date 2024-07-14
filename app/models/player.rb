@@ -3,6 +3,8 @@ class Player < ApplicationRecord
   has_many :collections, dependent: :destroy
   has_many :games, through: :collections
 
+  validates :name, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
+
   after_create_commit :create_default_collection
 
   def create_default_collection

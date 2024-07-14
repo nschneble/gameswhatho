@@ -11,6 +11,12 @@ class Game < ApplicationRecord
 
   searchkick
 
+  validates :name, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
+  validates :emoji, presence: true
+  validates :bgg_url, url: { allow_nil: true }
+  validates :play_count, range: true
+  validates :play_time, range: { allow_infinity: true }
+
   scope :versus, -> { where("games.play_count @> 2") }
   scope :speedy, -> { where("upper(games.play_time) <= 31").or(where("lower(games.play_time) <= 31 AND upper_inf(games.play_time)")) }
   scope :sorted, lambda {

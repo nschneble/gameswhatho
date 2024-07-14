@@ -91,3 +91,6 @@ gem "administrate"
 
 # Authentication
 gem "devise"
+
+# URL validation
+gem "validate_url"
