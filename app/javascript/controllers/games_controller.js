@@ -18,6 +18,10 @@ export default class extends Controller {
         modal.querySelector("[data-name]").textContent = game.emoji + " " + game.display_name
         modal.querySelector("[data-players]").textContent = game.number_of_players
         modal.querySelector("[data-length]").textContent = game.game_length_in_minutes
+        modal.querySelector("[data-bgg-name]").textContent = game.display_name
+        modal.querySelector("[data-bgg-url]").setAttribute("href", game.bgg_url)
+        modal.querySelector("[data-designer-name]").textContent = game.designer_name
+        modal.querySelector("[data-designer-url]").setAttribute("href", game.designer_website)
 
         if (game.base_game !== null) {
           modal.querySelector("[data-base-game-wrapper]").classList.remove("hidden")
@@ -33,8 +37,6 @@ export default class extends Controller {
           modal.querySelector("[data-expansions-wrapper]").classList.add("hidden")
         }
 
-        modal.querySelector("[data-designer]").textContent = game.designer_name
-        modal.querySelector("[data-designer]").setAttribute("href", game.designer_website)
         modal.showModal()
 
         document.addEventListener("click", closeModal)

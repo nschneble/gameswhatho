@@ -56,4 +56,6 @@ en:
   modal:
     base_game: "Base Game"
     expansions: "Expansions"
+    designer: "Homepage↗"
+    bgg: "on BGG↗"
     close: "Close"

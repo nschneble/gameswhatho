@@ -4,7 +4,7 @@ class GameResource
 
   root_key :game
 
-  attributes :id, :name, :emoji
+  attributes :id, :name, :emoji, :bgg_url
 
   attribute :display_name, &:display_name
   attribute :number_of_players, &:number_of_players
