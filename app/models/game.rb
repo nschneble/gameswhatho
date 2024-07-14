@@ -11,10 +11,10 @@ class Game < ApplicationRecord
 
   searchkick
 
-  scope :versus, -> { where("play_count @> 2") }
-  scope :speedy, -> { where("upper(play_time) <= 31").or(where("lower(play_time) <= 31 AND upper_inf(play_time)")) }
+  scope :versus, -> { where("games.play_count @> 2") }
+  scope :speedy, -> { where("upper(games.play_time) <= 31").or(where("lower(games.play_time) <= 31 AND upper_inf(games.play_time)")) }
   scope :sorted, lambda {
-    joins("LEFT JOIN games AS base_games ON games.base_game_id = base_games.id").order(Arel.sql("COALESCE(base_games.name, games.name)"))
+    joins("LEFT JOIN games AS base_games ON games.base_game_id = base_games.id").order(Arel.sql("COALESCE(base_games.name || games.name, games.name)"))
   }
 
   GAME_LENGTH_IN_MIN = {
