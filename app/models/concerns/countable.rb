@@ -2,10 +2,6 @@
 module Countable
   extend ActiveSupport::Concern
 
-  included do
-    scope :disabled, -> { where(disabled: true) }
-  end
-
   class_methods do
     def num_records(include_label: true)
       num_records = count

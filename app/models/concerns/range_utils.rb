@@ -2,10 +2,6 @@
 module RangeUtils
   extend ActiveSupport::Concern
 
-  included do
-    scope :disabled, -> { where(disabled: true) }
-  end
-
   def format_range(range)
     if not_so_much_a_range_as_an_integer?(range)
       range.to_fs(:zero)
