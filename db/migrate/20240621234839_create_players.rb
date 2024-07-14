@@ -10,6 +10,7 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
 
     create_table :collections do |t|
       t.string :name, null: false, default: "My Collection"
+      t.boolean :wishlist, null: false, default: false
       t.belongs_to :player
       t.timestamps
     end

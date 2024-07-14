@@ -4,4 +4,5 @@ class Collection < ApplicationRecord
   has_and_belongs_to_many :games
 
   validates :name, presence: true
+  validates :wishlist, inclusion: [true, false]
 end

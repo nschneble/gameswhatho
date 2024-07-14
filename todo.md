@@ -1,8 +1,5 @@
 # Project TODOs
 
-### Collection
-1. Add column to indicate if collection is a wishlist
-
 ### Devise
 1. Style admin login page
     https://tailwindcomponents.com/component/login-page-20

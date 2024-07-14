@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name", default: "My Collection", null: false
+    t.boolean "wishlist", default: false, null: false
     t.bigint "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
