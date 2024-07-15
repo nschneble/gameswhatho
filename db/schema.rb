@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
 
   create_table "games", force: :cascade do |t|
     t.string "name", default: "Game", null: false
+    t.string "slug", default: "game", null: false
     t.string "emoji", default: "🎲", null: false
     t.string "bgg_url"
     t.int4range "play_count"
@@ -52,6 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_033703) do
     t.index ["base_game_id"], name: "index_games_on_base_game_id"
     t.index ["designer_id"], name: "index_games_on_designer_id"
     t.unique_constraint ["name"]
+    t.unique_constraint ["slug"]
   end
 
   create_table "libraries", force: :cascade do |t|

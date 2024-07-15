@@ -7,6 +7,7 @@ gamewright = Designer.create_with(
 
 # Sushi Go!
 Game.create_with(
+  slug: "sushi-go",
   emoji: "🍣",
   bgg_url: "https://boardgamegeek.com/boardgame/133473/sushi-go",
   play_count: 2..5,
@@ -18,6 +19,7 @@ Game.create_with(
 
 # Abandon All Artichokes
 Game.create_with(
+  slug: "abandon-all-artichokes",
   emoji: "🥬",
   bgg_url: "https://boardgamegeek.com/boardgame/302260/abandon-all-artichokes",
   play_count: 2..4,

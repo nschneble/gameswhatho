@@ -12,6 +12,7 @@ class Game < ApplicationRecord
   searchkick
 
   validates :name, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
+  validates :slug, uniqueness: true, format: { with: /\A[a-zA-Z0-9\-]+\z/, message: I18n.t("validations.game.slug") } # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :emoji, presence: true
   validates :bgg_url, url: { allow_nil: true }
   validates :play_count, range: true

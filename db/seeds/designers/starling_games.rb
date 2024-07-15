@@ -7,6 +7,7 @@ starling_games = Designer.create_with(
 
 # Everdell
 Game.create_with(
+  slug: "everdell",
   emoji: "🐿",
   bgg_url: "https://boardgamegeek.com/boardgame/199792/everdell",
   play_count: 1..4,
@@ -18,6 +19,7 @@ Game.create_with(
 
 # Spirecrest expansion
 Game.create_with(
+  slug: "spirecrest",
   emoji: "❄️",
   bgg_url: "https://boardgamegeek.com/boardgame/289056/everdell-spirecrest",
   play_count: 1..4,

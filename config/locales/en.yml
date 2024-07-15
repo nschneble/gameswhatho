@@ -60,3 +60,6 @@ en:
     designer: "Homepage↗"
     bgg: "on BGG↗"
     close: "Close"
+  validations:
+    game:
+      slug: "only allows letters, numbers, and dashes"

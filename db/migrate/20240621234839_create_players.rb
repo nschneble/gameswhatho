@@ -25,6 +25,8 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
     create_table :games do |t|
       t.string :name, null: false, default: "Game"
       t.unique_constraint [:name]
+      t.string :slug, null: false, default: "game"
+      t.unique_constraint [:slug]
       t.string :emoji, null: false, default: "🎲"
       t.string :bgg_url
       t.int4range :play_count

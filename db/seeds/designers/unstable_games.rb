@@ -7,6 +7,7 @@ Designer.create_with(
 
 # Happy Little Dinosaurs
 Game.create_with(
+  slug: "happy-little-dinosaurs",
   emoji: "🦖",
   bgg_url: "https://boardgamegeek.com/boardgame/325414/happy-little-dinosaurs",
   play_count: 2..4,
