@@ -29,37 +29,37 @@
 
 en:
   app:
-    title: "Games Library"
     filter_title: "Games Library | "
     search_title: "Games Library | Search: "
+    title: "Games Library"
   collection:
     default_name: "My Collection"
     default_wishlist: "My Wishlist"
   controllers:
     create: " was successfully created."
-    update: " was successfully updated."
     delete: " was successfully destroyed."
-  games:
-    min: "min"
+    update: " was successfully updated."
   empty:
     message: "No games found"
     suggestion: "Search for something else?"
+  games:
+    min: "min"
   home:
     search: "Search"
     table:
-      title: "Title"
-      play_time: "Playing Time"
       play_count: "# Players"
+      play_time: "Playing Time"
+      title: "Title"
     tabs:
       sorted: "All Games"
-      versus: "Two Players"
       speedy: "Under 30 Minutes"
+      versus: "Two Players"
   modal:
     base_game: "Base Game"
-    expansions: "Expansions"
-    designer: "Homepage↗"
     bgg: "on BGG↗"
     close: "Close"
+    designer: "Homepage↗"
+    expansions: "Expansions"
   validations:
     game:
       slug: "only allows letters, numbers, and dashes"
