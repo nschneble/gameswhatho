@@ -5,8 +5,8 @@
     https://tailwindcomponents.com/component/login-page-20
 
 ### Games model
-1. Add "last played" timestamp ==> maybe this is unique to collections?
-                               ==> could be a join table or something
+1. Add "last played" timestamp
+2. Add pills/tabs for "game info" and "play sessions"
 
 ### Homepage
 1. Add "last played" column
