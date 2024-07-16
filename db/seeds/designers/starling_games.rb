@@ -17,9 +17,9 @@ Game.create_with(
   name: "Everdell"
 )
 
-# Spirecrest expansion
+# Everdell: Spirecrest expansion
 Game.create_with(
-  slug: "spirecrest",
+  slug: "everdell-spirecrest",
   emoji: "❄️",
   bgg_url: "https://boardgamegeek.com/boardgame/289056/everdell-spirecrest",
   play_count: 1..4,
