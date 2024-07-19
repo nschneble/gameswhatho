@@ -15,6 +15,9 @@
 # Pagy::DEFAULT[:page_param]  = :page                 # default
 # Pagy::DEFAULT[:count_args]  = []                    # example for non AR ORMs
 
+Pagy::DEFAULT[:items] = 10
+Pagy::DEFAULT[:size] = 0
+
 # Extras
 # See https://ddnexus.github.io/pagy/categories/extra
 
