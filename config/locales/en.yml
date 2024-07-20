@@ -54,6 +54,11 @@ en:
       sorted: "All Games"
       speedy: "Under 30 Minutes"
       versus: "Two Players"
+  login:
+    email: "Email"
+    password: "Password"
+    submit: "Log In"
+    title: "User Login"
   modal:
     base_game: "Base Game"
     bgg: "on BGG↗"

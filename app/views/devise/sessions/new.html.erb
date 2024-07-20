@@ -1,26 +1,48 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="w-full">
+  <% if notice.present? %>
+    <div class="md:w-9/12 w-full mx-auto flex">
+      <p class="mx-4 py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    </div>
+  <% elsif alert.present? %>
+    <div class="md:w-9/12 w-full mx-auto flex">
+      <p class="mx-4 py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  <% content_for :title, "User Login" %>
 
-<%= render "devise/shared/links" %>
+  <div class="md:w-9/12 w-full mx-auto flex">
+    <section class="container px-4 mx-auto">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <div>
+          <div class="flex items-center gap-x-3">
+            <%= image_tag asset_path("board-games.png"), size: "32x32" %>
+            <h1 class="text-2xl font-medium text-gray-800"><%= t("login.title") %></h1>
+          </div>
+        </div>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mt-6 grid gap-2 grid-cols-1 grid-rows-3">
+          <div class="relative flex items-center">
+            <span class="absolute">
+              <span class="w-5 h-5 mx-3 text-gray-400 opacity-50">✉️</span>
+            </span>
+            <input type="email" name="user[email]" value="" placeholder="<%= t("login.email") %>" autocomplete="email" autofocus="autofocus" class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+          </div>
+
+          <div class="relative flex items-center">
+            <span class="absolute">
+              <span class="w-5 h-5 mx-3 text-gray-400 opacity-50">🔒</span>
+            </span>
+            <input type="password" name="user[password]" placeholder="<%= t("login.password") %>" autocomplete="current-password" class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+          </div>
+
+          <button type="submit" class="button-close-modal block w-full md:w-80 px-5 py-1.5 text-white active:text-gray-100 capitalize transition-colors duration-200 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 border border-blue-600 hover:border-blue-700 active:border-blue-800 focus:shadow-outline">
+            <span><%= t("login.submit") %></span>
+          </button>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</div>
