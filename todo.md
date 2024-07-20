@@ -1,18 +1,28 @@
 # Project TODOs
 
-### Devise
-1. Style admin login page
-    https://tailwindcomponents.com/component/login-page-20
+## 💎 **Features**
+*Things to make the app more awesome*
 
-### Games model
-1. Add "last played" timestamp
-2. Add pills/tabs for "game info" and "play sessions"
+- [ ] Homepage
+  - [ ] Make all columns sortable
+  - [ ] Add submenu from [OG design](https://tailwindcomponents.com/component/table-with-filter-and-search)
+    - [ ] Add to collection
+    - [ ] Add to wishlist
+    - [ ] Visit designer homepage
+    - [ ] Visit BGG page
+  - [ ] Add "Game Night" button
+- [ ] My Collection page
+  - [ ] Mirrors the homepage (for one player)
+  - [ ] Swap tabs for "Your Games" and "Wishlist"
+- [ ] Game model
+    - [ ] Add optional url attribute
+    - [ ] Add "last played" timestamp
 
-### Homepage
-1. Add "last played" column
-2. Make columns sortable
+## 🚧 **Tech Debt**
+*Things to make the app suck less*
 
-### Modal
-1. Show players who own the game (i.e. not in a wishlist)
-2. Show "last played" timestamp
-3. Add button/input to update "last played" timestamp
+- [ ] Templates
+  - [ ] Add render template for buttons
+    - [ ] Primary buttons
+    - [ ] Secondary buttons
+  - [ ] Add render template for input fields
