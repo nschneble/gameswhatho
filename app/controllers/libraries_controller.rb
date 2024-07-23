@@ -26,6 +26,6 @@ class LibrariesController < ApplicationController
 
   def set_sortab
     @sortab = params[:sortab] if Game.valid_scope?(params[:sortab])
-    @sortab ||= "title_asc"
+    @sortab = "title_asc" if @sortab.nil?
   end
 end

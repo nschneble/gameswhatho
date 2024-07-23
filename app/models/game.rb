@@ -18,20 +18,20 @@ class Game < ApplicationRecord
   validates :play_count, range: true
   validates :play_time, range: { allow_infinity: true }
 
-  scope :sorted_by_name, ->(order) {
+  scope :sorted_by_name, lambda { |order|
     joins("LEFT JOIN games AS base_games ON games.base_game_id = base_games.id")
       .order(Arel.sql("COALESCE(base_games.name || games.name, games.name) #{order}"))
   }
-  scope :sorted_by_play_count, ->(order) {
+  scope :sorted_by_play_count, lambda { |order|
     order(Arel.sql("lower(games.play_count) #{order}, upper(games.play_count) #{order}"))
   }
-  scope :sorted_by_play_time, ->(order) {
+  scope :sorted_by_play_time, lambda { |order|
     order(Arel.sql("lower(games.play_time) #{order}, upper(games.play_time) #{order}"))
   }
 
   scope :versus, -> { where("games.play_count @> 2") }
   scope :speedy, -> { where("upper(games.play_time) <= 31").or(where("lower(games.play_time) <= 31 AND upper_inf(games.play_time)")) }
-  scope :sorted, -> { sorted_by_name("ASC") }
+  scope :sorted, -> { title_asc }
 
   scope :count_asc, -> { sorted_by_play_count("ASC") }
   scope :count_dsc, -> { sorted_by_play_count("DESC") }
@@ -46,7 +46,7 @@ class Game < ApplicationRecord
   }.freeze
 
   def self.valid_scope?(scope)
-    return false unless scope.present?
+    return false if scope.blank?
 
     send(:generated_relation_methods).instance_methods.include? scope.to_sym
   end
