@@ -4,7 +4,6 @@
 *Things to make the app more awesome*
 
 - [ ] Homepage
-  - [ ] Make all columns sortable
   - [ ] Add submenu from [OG design](https://tailwindcomponents.com/component/table-with-filter-and-search)
     - [ ] Add to collection
     - [ ] Add to wishlist
@@ -21,6 +20,8 @@
 ## 🚧 **Tech Debt**
 *Things to make the app suck less*
 
+- [ ] Naming conventions
+  - [ ] form-submission controller => search controller
 - [ ] Templates
   - [ ] Add render template for buttons
     - [ ] Primary buttons
