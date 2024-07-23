@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="form-submission"
+// Connects to data-controller="search"
 export default class extends Controller {
   search() {
     const searchQuery = document.querySelector(`input[name="search"]`).value

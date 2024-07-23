@@ -20,10 +20,4 @@
 ## 🚧 **Tech Debt**
 *Things to make the app suck less*
 
-- [ ] Naming conventions
-  - [ ] form-submission controller => search controller
-- [ ] Templates
-  - [ ] Add render template for buttons
-    - [ ] Primary buttons
-    - [ ] Secondary buttons
-  - [ ] Add render template for input fields
+- [ ] Nothing right now
