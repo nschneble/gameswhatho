@@ -4,8 +4,8 @@ class LibrariesController < ApplicationController
   before_action :set_search, only: %i[index]
 
   def index
-    if @filter.present? && Game.valid_scope?(@filter)
       @pagy, @games = pagy(Game.send(@filter.to_sym).sorted)
+    if @filter.present?
     elsif @search.present?
       @pagy, @games = pagy_searchkick(Game.pagy_search(@search))
     else
@@ -16,7 +16,7 @@ class LibrariesController < ApplicationController
   private
 
   def set_filter
-    @filter = params[:filter].presence
+    @filter = params[:filter] if Game.valid_scope?(params[:filter])
   end
 
   def set_search

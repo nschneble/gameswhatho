@@ -24,7 +24,7 @@
             <button class="button-filter-versus px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm <%= filter_nav_classes("versus", @filter, @search) %>" data-action="click->filter#change" data-filter="versus"><%= t("home.tabs.versus") %></button>
             <button class="button-filter-speedy px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm <%= filter_nav_classes("speedy", @filter, @search) %>" data-action="click->filter#change" data-filter="speedy"><%= t("home.tabs.speedy") %></button>
           </div>
-          <%= form.hidden_field :filter, value: "sorted" %>
+          <%= form.hidden_field :filter, value: @filter %>
         <% end %>
 
         <div class="relative flex items-center mt-4 md:mt-0">

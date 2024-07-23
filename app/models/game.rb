@@ -31,6 +31,8 @@ class Game < ApplicationRecord
   }.freeze
 
   def self.valid_scope?(scope)
+    return false unless scope.present?
+
     send(:generated_relation_methods).instance_methods.include? scope.to_sym
   end
 
