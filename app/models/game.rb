@@ -18,12 +18,27 @@ class Game < ApplicationRecord
   validates :play_count, range: true
   validates :play_time, range: { allow_infinity: true }
 
+  scope :sorted_by_name, ->(order) {
+    joins("LEFT JOIN games AS base_games ON games.base_game_id = base_games.id")
+      .order(Arel.sql("COALESCE(base_games.name || games.name, games.name) #{order}"))
+  }
+  scope :sorted_by_play_count, ->(order) {
+    order(Arel.sql("lower(games.play_count) #{order}, upper(games.play_count) #{order}"))
+  }
+  scope :sorted_by_play_time, ->(order) {
+    order(Arel.sql("lower(games.play_time) #{order}, upper(games.play_time) #{order}"))
+  }
+
   scope :versus, -> { where("games.play_count @> 2") }
   scope :speedy, -> { where("upper(games.play_time) <= 31").or(where("lower(games.play_time) <= 31 AND upper_inf(games.play_time)")) }
-  scope :sorted, lambda {
-    joins("LEFT JOIN games AS base_games ON games.base_game_id = base_games.id")
-      .order(Arel.sql("COALESCE(base_games.name || games.name, games.name)"))
-  }
+  scope :sorted, -> { sorted_by_name("ASC") }
+
+  scope :count_asc, -> { sorted_by_play_count("ASC") }
+  scope :count_dsc, -> { sorted_by_play_count("DESC") }
+  scope :times_asc, -> { sorted_by_play_time("ASC") }
+  scope :times_dsc, -> { sorted_by_play_time("DESC") }
+  scope :title_asc, -> { sorted_by_name("ASC") }
+  scope :title_dsc, -> { sorted_by_name("DESC") }
 
   GAME_LENGTH_IN_MIN = {
     short: 31,

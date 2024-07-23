@@ -47,8 +47,8 @@ en:
   home:
     search: "Search"
     table:
-      play_count: "# Players"
-      play_time: "Playing Time"
+      count: "Players"
+      times: "Playing Time"
       title: "Title"
     tabs:
       sorted: "All Games"
