@@ -1,21 +1,21 @@
 <% if game.empty? %>
-<div class="table-row">
+<div class="table-row text-sm font-normal text-left">
 <% else %>
-<div class="table-row hover:bg-gray-50 cursor-pointer" data-controller="games" data-action="click->games#show" data-games-id="<%= game.id %>" id="<%= dom_id game %>">
+<div class="table-row text-sm font-normal text-left hover:bg-gray-50 cursor-pointer" data-controller="games" data-action="click->games#show" data-games-id="<%= game.id %>" id="<%= dom_id game %>">
 <% end %>
-  <div class="table-cell pl-4 py-3.5 w-1/8 text-sm font-normal text-center align-middle">
+  <div class="table-cell pl-4 py-3.5 w-1/8 text-center align-middle">
     <span><%= game.emoji %></span>
   </div>
-  <div class="table-cell px-4 py-3.5 w-1/2 text-sm font-normal text-left whitespace-nowrap">
+  <div class="table-cell px-4 py-3.5 w-1/2 whitespace-nowrap">
     <h2 class="font-medium text-gray-800"><%= game.display_name %></h2>
     <p class="text-gray-600"><%= game.designer.name %></p>
   </div>
-  <div class="table-cell px-4 py-3.5 w-1/4 text-sm font-normal text-left align-middle">
+  <div class="table-cell px-4 py-3.5 w-1/4 align-middle">
     <div class="<%= play_time_badge_classes(game) %>">
       <%= game.game_length_in_minutes %>
     </div>
   </div>
-  <div class="table-cell px-4 py-3.5 w-1/8 text-sm font-normal text-left align-middle">
+  <div class="table-cell px-4 py-3.5 w-1/8 align-middle">
     <h4 class="text-gray-700"><%= game.number_of_players %></h4>
   </div>
 </div>
