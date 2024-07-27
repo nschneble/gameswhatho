@@ -1,22 +1,22 @@
 <%= turbo_frame_tag "games" do %>
   <div class="flex flex-col mt-6">
-    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-        <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+    <div>
+      <div class="inline-block min-w-full align-middle">
+        <div class="overflow-hidden border border-gray-200 rounded-lg">
 
-          <%= form_with url: root_path, method: :get, data: { controller: "sort", turbo_frame: "games" } do |form| %>
+          <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "sort", turbo_frame: "games" } do |form| %>
             <div class="table min-w-full divide-y divide-gray-200">
               <div class="table-header-group bg-gray-50">
                 <div class="table-row text-sm font-normal text-left">
-                  <div class="table-cell w-1/8 pl-4 py-3.5"></div>
+                  <div class="table-cell w-1/12 pl-4 py-3.5 max-sm:hidden"></div>
                   <% if @search.present? %>
-                    <div class="table-cell w-1/2 px-4 py-3.5 text-gray-500"><%= t("home.table.title") %></div>
-                    <div class="table-cell w-1/4 px-4 py-3.5 text-gray-500"><%= t("home.table.times") %></div>
-                    <div class="table-cell w-1/8 px-4 py-3.5 text-gray-500"><%= t("home.table.count") %></div>
+                    <div class="table-cell w-6/12 px-4 py-3.5 text-gray-500"><%= t("home.table.title") %></div>
+                    <div class="table-cell w-3/12 px-4 py-3.5 text-gray-500 max-sm:hidden"><%= t("home.table.times") %></div>
+                    <div class="table-cell w-2/12 px-4 py-3.5 text-gray-500 max-sm:hidden"><%= t("home.table.count") %></div>
                   <% else %>
-                    <div class="table-cell w-1/2"><button class="button-sort-title w-full px-4 py-3.5 text-left hover:bg-gray-100 focus:outline-none <%= sort_nav_classes("title", @sortab) %>" data-action="click->sort#change" data-column="title" data-sortab="<%= @sortab %>"><%= t("home.table.title") %><span class="float-end"><%= sort_arrow_decoration("title", @sortab) %></span></button></div>
-                    <div class="table-cell w-1/4"><button class="button-sort-times w-full px-4 py-3.5 text-left hover:bg-gray-100 focus:outline-none <%= sort_nav_classes("times", @sortab) %>" data-action="click->sort#change" data-column="times" data-sortab="<%= @sortab %>"><%= t("home.table.times") %><span class="float-end"><%= sort_arrow_decoration("times", @sortab) %></span></button></div>
-                    <div class="table-cell w-1/8"><button class="button-sort-count w-full px-4 py-3.5 text-left hover:bg-gray-100 focus:outline-none <%= sort_nav_classes("count", @sortab) %>" data-action="click->sort#change" data-column="count" data-sortab="<%= @sortab %>"><%= t("home.table.count") %><span class="float-end"><%= sort_arrow_decoration("count", @sortab) %></span></button></div>
+                    <div class="table-cell w-6/12 h-full"><button class="button-sort-title w-full h-full px-4 py-3.5 text-left hover:bg-gray-100 focus:outline-none <%= sort_nav_classes("title", @sortab) %>" data-action="click->sort#change" data-column="title" data-sortab="<%= @sortab %>"><%= t("home.table.title") %><span class="float-end"><%= sort_arrow_decoration("title", @sortab) %></span></button></div>
+                    <div class="table-cell w-3/12 h-full max-sm:hidden"><button class="button-sort-times w-full h-full bg-orange-200 px-4 py-3.5 text-left hover:bg-gray-100 focus:outline-none <%= sort_nav_classes("times", @sortab) %>" data-action="click->sort#change" data-column="times" data-sortab="<%= @sortab %>"><%= t("home.table.times") %><span class="float-end"><%= sort_arrow_decoration("times", @sortab) %></span></button></div>
+                    <div class="table-cell w-2/12 h-full max-sm:hidden"><button class="button-sort-count w-full h-full px-4 py-3.5 text-left hover:bg-gray-100 focus:outline-none <%= sort_nav_classes("count", @sortab) %>" data-action="click->sort#change" data-column="count" data-sortab="<%= @sortab %>"><%= t("home.table.count") %><span class="float-end"><%= sort_arrow_decoration("count", @sortab) %></span></button></div>
                   <% end %>
                 </div>
               </div>
@@ -38,7 +38,7 @@
   </div>
 
   <div class="mt-6 mb-12 sm:flex sm:items-center sm:justify-between">
-    <%== pagy_info(@pagy) %>
-    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+    <div class="max-sm:flex max-sm:items-center max-sm:justify-center"><%== pagy_info(@pagy) %></div>
+    <div class="max-sm:flex max-sm:items-center max-sm:justify-center max-sm:mt-3"><%== pagy_nav(@pagy) if @pagy.pages > 1 %></div>
   </div>
 <% end %>
