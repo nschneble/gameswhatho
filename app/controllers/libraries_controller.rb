@@ -5,13 +5,13 @@ class LibrariesController < ApplicationController
   before_action :set_sortab, only: %i[index]
 
   def index
-    if @filter.present?
-      @pagy, @games = pagy(Game.send(@filter.to_sym).send(@sortab.to_sym))
-    elsif @search.present?
-      @pagy, @games = pagy_searchkick(Game.pagy_search(@search))
-    else
-      @pagy, @games = pagy(Game.send(@sortab.to_sym))
-    end
+    @pagy, @games = if @filter.present?
+                      pagy(Game.send(@filter.to_sym).send(@sortab.to_sym))
+                    elsif @search.present?
+                      pagy_searchkick(Game.pagy_search(@search))
+                    else
+                      pagy(Game.send(@sortab.to_sym))
+                    end
   end
 
   private
